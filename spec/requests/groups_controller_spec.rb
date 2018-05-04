@@ -4,6 +4,8 @@ describe GroupsController do
   let(:user) { Fabricate(:user) }
   let(:group) { Fabricate(:group, users: [user]) }
   let(:moderator_group_id) { Group::AUTO_GROUPS[:moderators] }
+  let(:admin) { Fabricate(:admin) }
+  let(:moderator) { Fabricate(:moderator) }
 
   describe '#index' do
     let(:staff_group) do
@@ -11,11 +13,32 @@ describe GroupsController do
     end
 
     context 'when group directory is disabled' do
-      it 'should deny access' do
+      before do
         SiteSetting.enable_group_directory = false
+      end
 
+      it 'should deny access for an anon user' do
         get "/groups.json"
-        expect(response).to be_forbidden
+        expect(response.status).to eq(403)
+      end
+
+      it 'should deny access for a normal user' do
+        get "/groups.json"
+        expect(response.status).to eq(403)
+      end
+
+      it 'should not deny access for an admin' do
+        sign_in(admin)
+        get "/groups.json"
+
+        expect(response.status).to eq(200)
+      end
+
+      it 'should not deny access for a moderator' do
+        sign_in(moderator)
+        get "/groups.json"
+
+        expect(response.status).to eq(200)
       end
     end
 
@@ -473,6 +496,7 @@ describe GroupsController do
       before do
         user.update_attributes!(admin: true)
         sign_in(user)
+        SiteSetting.queue_jobs = true
       end
 
       it 'should be able to update the group' do
@@ -506,6 +530,9 @@ describe GroupsController do
         expect(group.automatic_membership_email_domains).to eq('test.org')
         expect(group.automatic_membership_retroactive).to eq(true)
         expect(group.grant_trust_level).to eq(2)
+
+        expect(Jobs::AutomaticGroupMembership.jobs.first["args"].first["group_id"])
+          .to eq(group.id)
       end
 
       it "should be able to update an automatic group" do
@@ -837,10 +864,20 @@ describe GroupsController do
         ))
       end
 
-      it "returns 404 if member is not found" do
-        put "/groups/#{group.id}/members.json", params: { usernames: 'some donkey' }
+      it "returns 400 if member is not found" do
+        [
+          { usernames: "some thing" },
+          { user_ids: "-5,-6" },
+          { user_emails: "some@test.org" }
+        ].each do |params|
+          put "/groups/#{group.id}/members.json", params: params
 
-        expect(response.status).to eq(404)
+          expect(response.status).to eq(400)
+
+          body = JSON.parse(response.body)
+
+          expect(body["error_type"]).to eq("invalid_parameters")
+        end
       end
 
       context 'public group' do

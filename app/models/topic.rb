@@ -22,6 +22,7 @@ class Topic < ActiveRecord::Base
   include Searchable
   include LimitedEdit
   extend Forwardable
+  include DateGroupable
 
   def_delegator :featured_users, :user_ids, :featured_user_ids
   def_delegator :featured_users, :choose, :feature_topic_users
@@ -459,9 +460,9 @@ class Topic < ActiveRecord::Base
   end
 
   def self.listable_count_per_day(start_date, end_date, category_id = nil)
-    result = listable_topics.where('created_at >= ? and created_at <= ?', start_date, end_date)
+    result = listable_topics.smart_group_by_date("topics.created_at", start_date, end_date)
     result = result.where(category_id: category_id) if category_id
-    result.group('date(created_at)').order('date(created_at)').count
+    result.count
   end
 
   def private_message?
@@ -1006,10 +1007,6 @@ SQL
 
   def relative_url(post_number = nil)
     Topic.relative_url(id, slug, post_number)
-  end
-
-  def unsubscribe_url
-    "#{url}/unsubscribe"
   end
 
   def clear_pin_for(user)

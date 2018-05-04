@@ -11,5 +11,5 @@ pt:
       replying: "a responder"
       editing: "a editar"
       replying_to_topic:
-        one: "está a responder"
-        other: "estão a responder"
+        one: "a responder"
+        other: "a responder"
