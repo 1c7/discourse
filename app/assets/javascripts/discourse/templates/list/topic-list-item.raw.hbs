@@ -12,28 +12,29 @@
   at the end of the link, preventing it from line wrapping onto its own line.
 --}}
 {{!-- <td class='main-link clearfix' colspan="{{titleColSpan}}"> --}}
+<a href='{{topic.summaryUrl}}'>
   <div style='height: 185px; background-color: #f33; '>
     图片占位
   </div>
   <span class='link-top-line'>
-    {{~raw-plugin-outlet name="topic-list-before-status"}}
+    {{!-- {{~raw-plugin-outlet name="topic-list-before-status"}} --}}
     {{!-- {{~raw "topic-status" topic=topic}} --}}
 
+    {{!-- 标题 --}}
     <div class="title" style='padding-top:12px; padding-left:10px; padding-right:10px;'>
       {{topic.fancyTitle}}
     </div>
     
     {{!-- {{~topic-link topic class="raw-link raw-topic-link"}} --}}
-    
-    
-    {{~#if topic.featured_link}}
+    {{!-- {{~#if topic.featured_link}}
       {{~topic-featured-link topic}}
-    {{~/if}}
+    {{~/if}} --}}
     {{~raw-plugin-outlet name="topic-list-after-title"}}
-    {{~#if showTopicPostBadges}}
+    {{!-- {{~#if showTopicPostBadges}}
       {{~raw "topic-post-badges" unread=topic.unread newPosts=topic.displayNewPosts unseen=topic.unseen url=topic.lastUnreadUrl newDotText=newDotText}}
-    {{~/if}}
+    {{~/if}} --}}
   </span>
+  </a>
 
   {{!-- {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
   {{#if expandPinned}}
