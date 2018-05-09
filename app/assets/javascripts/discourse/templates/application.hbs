@@ -15,8 +15,8 @@
     {{#if showTop}}
       {{custom-html name="top"}}
     {{/if}}
-    {{global-notice}}  
-    {{!-- global-notice 全局提醒，比如 『欢迎来到你新安装的 Discourse！让我们开始设置向导✨』--}}
+    {{notification-consent-banner}}
+    {{global-notice}}
     {{create-topics-notice}}
   </div>
   {{outlet}}

@@ -1,6 +1,7 @@
 // 看名字和代码，这里是一堆小工具，一堆函数
 // 邮箱验证，从 URL 里抽取域名等等
 import { escape } from 'pretty-text/sanitizer';
+import toMarkdown from 'discourse/lib/to-markdown';
 
 const homepageSelector = 'meta[name=discourse_current_homepage]';
 
@@ -122,12 +123,8 @@ export function selectedText() {
   $div.find(".clicks").remove();
   // replace emojis
   $div.find("img.emoji").replaceWith(function() { return this.title; });
-  // replace br with newlines
-  $div.find("br").replaceWith(() => "\n");
-  // enforce newline at the end of paragraphs
-  $div.find("p").append(() => "\n");
 
-  return String($div.text()).trim().replace(/(^\s*\n)+/gm, "\n");
+  return toMarkdown($div.html());
 }
 
 // Determine the row and col of the caret in an element

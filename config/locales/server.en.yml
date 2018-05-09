@@ -171,6 +171,12 @@ en:
 
   invite:
     not_found: "Your invite token is invalid. Please contact the site's administrator."
+    not_found_template: |
+      <p>Your invite to <a href="%{base_url}">%{site_name}</a> has already been redeemed.</p>
+
+      <p>If you remember your password you can <a href="%{base_url}/login">Login</a>.</p>
+
+      <p>Otherwise please <a href="%{base_url}/password-reset">Reset Password</a>.</p>
     user_exists: "There's no need to invite <b>%{email}</b>, they <a href='/u/%{username}/summary'>already have an account!</a>"
 
   bulk_invite:
@@ -1204,7 +1210,6 @@ en:
     new_version_emails: "Send an email to the contact_email address when a new version of Discourse is available."
 
     invite_expiry_days: "How long user invitation keys are valid, in days"
-    invite_passthrough_hours: "How long a user can use a previously redeemed invitation key to log in, in hours"
 
     invite_only: "Public registration is disabled, all new users must be explicitly invited by staff."
 
@@ -1231,6 +1236,8 @@ en:
     sso_overrides_username: "Overrides local username with external site username from SSO payload on every login, and prevent local changes. (WARNING: discrepancies can occur due to differences in username length/requirements)"
     sso_overrides_name: "Overrides local full name with external site full name from SSO payload on every login, and prevent local changes."
     sso_overrides_avatar: "Overrides user avatar with external site avatar from SSO payload. If enabled, disabling allow_uploaded_avatars is highly recommended"
+    sso_overrides_profile_background: "Overrides user profile background with external site avatar from SSO payload."
+    sso_overrides_card_background: "Overrides user card background with external site avatar from SSO payload."
     sso_not_approved_url: "Redirect unapproved SSO accounts to this URL"
     sso_allows_all_return_paths: "Do not restrict the domain for return_paths provided by SSO (by default return path must be on current site)"
 
@@ -1473,6 +1480,7 @@ en:
     auto_silence_fast_typers_max_trust_level: "Maximum trust level to auto silence fast typers"
     auto_silence_first_post_regex: "Case insensitive regex that if passed will cause first post by user to be silenced and sent to approval queue. Example: raging|a[bc]a , will cause all posts containing raging or aba or aca to be silenced on first. Only applies to first post."
     flags_default_topics: "Show flagged topics by default in the admin section"
+    min_flags_staff_visibility: "The minimum amount of flags on a post must have before staff can see it in the admin section"
 
     reply_by_email_enabled: "Enable replying to topics via email."
     reply_by_email_address: "Template for reply by email incoming email address, for example: %{reply_key}@reply.example.com or replies+%{reply_key}@example.com"
@@ -1709,6 +1717,9 @@ en:
     company_domain: "Company Domain"
 
     shared_drafts_category: "Enable the Shared Drafts feature by designating a category for topic drafts."
+
+    push_notifications_prompt: "Display user consent prompt."
+    push_notifications_icon_url: "The badge icon that appears in the notification corner. Recommended size is 96px by 96px."
 
     errors:
       invalid_email: "Invalid email address."
@@ -3853,3 +3864,15 @@ en:
     graph_title: "Search Count"
 
   joined: "Joined"
+
+  discourse_push_notifications:
+    popup:
+      mentioned: '%{username} mentioned you in "%{topic}" - %{site_title}'
+      group_mentioned: '%{username} mentioned you in "%{topic}" - %{site_title}'
+      quoted: '%{username} quoted you in "%{topic}" - %{site_title}'
+      replied: '%{username} replied to you in "%{topic}" - %{site_title}'
+      posted: '%{username} posted in "%{topic}" - %{site_title}'
+      private_message: '%{username} sent you a private message in "%{topic}" - %{site_title}'
+      linked: '%{username} linked to your post from "%{topic}" - %{site_title}'
+      confirm_title: 'Notifications enabled - %{site_title}'
+      confirm_body: 'Success! Notifications have been enabled.'
