@@ -11,11 +11,21 @@
   This causes the topic-post-badge to be considered the same word as "text"
   at the end of the link, preventing it from line wrapping onto its own line.
 --}}
-<td class='main-link clearfix' colspan="{{titleColSpan}}">
+{{!-- <td class='main-link clearfix' colspan="{{titleColSpan}}"> --}}
+  <div style='height: 185px; background-color: #f33; '>
+    图片占位
+  </div>
   <span class='link-top-line'>
     {{~raw-plugin-outlet name="topic-list-before-status"}}
-    {{~raw "topic-status" topic=topic}}
-    {{~topic-link topic class="raw-link raw-topic-link"}}
+    {{!-- {{~raw "topic-status" topic=topic}} --}}
+
+    <div class="title" style='padding-top:12px; padding-left:10px; padding-right:10px;'>
+      {{topic.fancyTitle}}
+    </div>
+    
+    {{!-- {{~topic-link topic class="raw-link raw-topic-link"}} --}}
+    
+    
     {{~#if topic.featured_link}}
       {{~topic-featured-link topic}}
     {{~/if}}
@@ -30,7 +40,7 @@
     {{raw "list/topic-excerpt" topic=topic}}
   {{/if}} --}}
   {{!-- {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}} --}}
-</td>
+{{!-- </td> --}}
 
 {{!-- {{#unless hideCategory}}
   {{#unless topic.isPinnedUncategorized}}
