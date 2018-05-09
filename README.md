@@ -3,6 +3,9 @@
 所以直接来改代码。自己部署。   
 不是简单换个皮，做个 plugin 加一两个选项就可以的那种轻度定制。    
 
+### 主分支
+是 discourse-master，不是 master
+
 ### Discourse 技术栈
 Ruby on Rails + Ember.js + PostgreSQL 
 
