@@ -1,5 +1,5 @@
 {{#unless skipHeader}}
-  <thead>
+  {{!-- <thead>
     {{raw "topic-list-header"
       canBulkSelect=canBulkSelect
       toggleInTitle=toggleInTitle
@@ -13,7 +13,7 @@
       sortable=sortable
       listTitle=listTitle
       bulkSelectEnabled=bulkSelectEnabled}}
-  </thead>
+  </thead> --}}
 {{/unless}}
 
 {{plugin-outlet
@@ -28,21 +28,19 @@
   tagName=""
   connectorTagName=""}}
 
-<tbody>
-  {{#each filteredTopics as |topic|}}
-    {{topic-list-item topic=topic
-                      bulkSelectEnabled=bulkSelectEnabled
-                      showTopicPostBadges=showTopicPostBadges
-                      hideCategory=hideCategory
-                      showPosters=showPosters
-                      showParticipants=showParticipants
-                      showLikes=showLikes
-                      showOpLikes=showOpLikes
-                      expandGloballyPinned=expandGloballyPinned
-                      expandAllPinned=expandAllPinned
-                      lastVisitedTopic=lastVisitedTopic
-                      selected=selected
-                      tagsForUser=tagsForUser}}
-    {{raw "list/visited-line" lastVisitedTopic=lastVisitedTopic topic=topic}}
-  {{/each}}
-</tbody>
+{{#each filteredTopics as |topic|}}
+  {{topic-list-item topic=topic
+                    bulkSelectEnabled=bulkSelectEnabled
+                    showTopicPostBadges=showTopicPostBadges
+                    hideCategory=hideCategory
+                    showPosters=showPosters
+                    showParticipants=showParticipants
+                    showLikes=showLikes
+                    showOpLikes=showOpLikes
+                    expandGloballyPinned=expandGloballyPinned
+                    expandAllPinned=expandAllPinned
+                    lastVisitedTopic=lastVisitedTopic
+                    selected=selected
+                    tagsForUser=tagsForUser}}
+  {{!-- {{raw "list/visited-line" lastVisitedTopic=lastVisitedTopic topic=topic}} --}}
+{{/each}}

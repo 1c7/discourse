@@ -1,8 +1,8 @@
-{{#if bulkSelectEnabled}}
+{{!-- {{#if bulkSelectEnabled}}
   <td class="bulk-select">
     <input type="checkbox" class="bulk-select">
   </td>
-{{/if}}
+{{/if}} --}}
 
 {{!--
   The `~` syntax strip spaces between the elements, making it produce
@@ -25,47 +25,47 @@
     {{~/if}}
   </span>
 
-  {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
+  {{!-- {{discourse-tags topic mode="list" tagsForUser=tagsForUser}}
   {{#if expandPinned}}
     {{raw "list/topic-excerpt" topic=topic}}
-  {{/if}}
-  {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
+  {{/if}} --}}
+  {{!-- {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}} --}}
 </td>
 
-{{#unless hideCategory}}
+{{!-- {{#unless hideCategory}}
   {{#unless topic.isPinnedUncategorized}}
     {{raw "list/category-column" category=topic.category}}
   {{/unless}}
-{{/unless}}
-
+{{/unless}} --}}
+{{!-- 
 {{#if showPosters}}
   {{raw "list/posters-column" posters=topic.posters}}
-{{/if}}
+{{/if}} --}}
 
-{{raw "list/posts-count-column" topic=topic}}
+{{!-- {{raw "list/posts-count-column" topic=topic}} --}}
 
-{{#if showParticipants}}
+{{!-- {{#if showParticipants}}
   {{raw "list/posters-column" posters=topic.participants}}
-{{/if}}
+{{/if}} --}}
 
-{{#if showLikes}}
+{{!-- {{#if showLikes}}
 <td class="num likes">
   {{#if hasLikes}}
     <a href='{{topic.summaryUrl}}'>
       {{number topic.like_count}} {{d-icon "heart"}}</td>
     </a>
   {{/if}}
-{{/if}}
+{{/if}} --}}
 
-{{#if showOpLikes}}
+{{!-- {{#if showOpLikes}}
 <td class="num likes">
   {{#if hasOpLikes}}
     <a href='{{topic.summaryUrl}}'>
       {{number topic.op_like_count}} {{d-icon "heart"}}</td>
     </a>
   {{/if}}
-{{/if}}
+{{/if}} --}}
 
-<td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td>
+{{!-- <td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td> --}}
 
-{{raw "list/activity-column" topic=topic class="num" tagName="td"}}
+{{!-- {{raw "list/activity-column" topic=topic class="num" tagName="td"}} --}}

@@ -135,7 +135,7 @@ $tag-color: $primary-medium;
 }
 
 .topic-list-item .discourse-tags {
-  display: block;
+  display: inline-block;
   font-size: $font-down-2;
   font-weight: normal;
   clear: both;
