@@ -21,6 +21,10 @@ Ruby on Rails + Ember.js + PostgreSQL
 看看后台有什么选项，能设置什么。长什么样子   
 
 
+### 文件上传
+怎么实现的？用了什么？
+
+
 ### 1. 定制代码的前缀
 为了一眼区分什么代码是 discourse 的，什么代码是我们加的。
 我们用前缀来做（不管是 controller, models, view, helper, 都用前缀）

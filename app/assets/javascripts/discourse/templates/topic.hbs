@@ -241,7 +241,7 @@
                 {{#if currentUser}}
                   {{plugin-outlet name="topic-above-footer-buttons" args=(hash model=model)}}
                   {{!-- 最后一楼回复下面，那一排底部按钮，左右到右：扳手图标，Bookmark, Share, Flag, Invite, Reply --}}
-                  {{topic-footer-buttons
+                  {{!-- {{topic-footer-buttons
                     topic=model
                     toggleMultiSelect=(action "toggleMultiSelect")
                     deleteTopic=(action "deleteTopic")
@@ -260,7 +260,7 @@
                     toggleArchiveMessage=(action "toggleArchiveMessage")
                     editFirstPost=(action "editFirstPost")
                     replyToPost=(action "replyToPost")
-                    }}
+                    }} --}}
                 {{else}}
                   <div id="topic-footer-buttons">
                     {{d-button icon="reply" class="btn-primary pull-right" action="showLogin" label="topic.reply.title"}}
@@ -268,17 +268,18 @@
                 {{/if}}
               {{/if}}
 
-              {{#if showSelectedPostsAtBottom}}
+              {{!-- 把帖子详情页面底部的推荐其他主题都去掉 --}}
+              {{!-- {{#if showSelectedPostsAtBottom}}
                 <div class='selected-posts {{unless multiSelect 'hidden'}}'>
                   {{partial "selected-posts"}}
                 </div>
-              {{/if}}
+              {{/if}} --}}
 
-              {{plugin-outlet name="topic-above-suggested" args=(hash model=model)}}
+              {{!-- {{plugin-outlet name="topic-above-suggested" args=(hash model=model)}} --}}
 
-              {{#if model.suggestedTopics.length}}
+              {{!-- {{#if model.suggestedTopics.length}}
                 {{suggested-topics topic=model}}
-              {{/if}}
+              {{/if}} --}}
             {{/if}}
           {{/conditional-loading-spinner}}
 

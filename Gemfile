@@ -21,20 +21,20 @@ else
   gem 'activesupport', '~> 5.1'
   gem 'railties', '~> 5.1'
   gem 'sprockets-rails'
-  gem 'seed-fu'
+  gem 'seed-fu' # https://github.com/mbleigh/seed-fu
 end
 
 gem 'mail', '2.7.1.rc1', require: false
 gem 'mini_mime'
 gem 'mini_suffix'
 
-gem 'hiredis'
+gem 'hiredis' # https://github.com/redis/hiredis-rb # Ruby wrapper for hiredis
 gem 'redis', require:  ["redis", "redis/connection/hiredis"]
 gem 'redis-namespace'
 
 gem 'active_model_serializers', '~> 0.8.3'
 
-gem 'onebox', '1.8.47'
+gem 'onebox', '1.8.47' # https://github.com/discourse/onebox # A gem for turning URLs into website previews
 
 gem 'http_accept_language', '~>2.0.5', require: false
 
