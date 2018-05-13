@@ -1,5 +1,9 @@
 // 路由，好多路由都在这边
 export default function() {
+
+  // 自己测试用的
+  this.route('haha', {path: '/haha'});
+
   // Error page
   this.route('exception', { path: '/exception' });
   this.route('exception-unknown', { path: '/404' });

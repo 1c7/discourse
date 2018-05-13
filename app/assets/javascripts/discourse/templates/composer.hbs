@@ -1,10 +1,11 @@
+{{!-- 编辑器，点击右上角的"发新主题"会弹出来 --}}
 {{#composer-body composer=model
                  showPreview=showPreview
                  openIfDraft="openIfDraft"
                  typed="typed"
                  cancelled="cancelled"
                  save="save"}}
-
+  {{!-- <h2>这个是编辑器</h2> --}}
   {{#if visible}}
       {{composer-messages composer=model
                           messageCount=messageCount
@@ -166,6 +167,7 @@
         </div>
 
         <div class='draft-text'>
+          {{!-- <h2>保存草稿？</h2> --}}
           {{#if model.topic}}
             {{d-icon "mail-forward"}} {{{draftTitle}}}
           {{else}}

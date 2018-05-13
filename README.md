@@ -3,6 +3,19 @@
 因为 Theme 和 Plugin 对于我们要做的定制不够方便。    
 所以直接改代码自己部署      
 
+
+### 5. Run on local (MacOS)
+```
+# 启动 PostgreSQL
+pg_ctl -D /usr/local/var/postgres start 
+
+# Redis
+redis-server &
+
+# Rails
+rails s
+```
+
 ### 主分支
 是 discourse-master，不是 master
 
@@ -86,19 +99,6 @@ Rails 和 Ember.js 是重点
 * Redis
 * 第三方登录是 omniauth
 * `gem 'ember-rails', '0.18.5'`
-
-
-### 5. Run on local (MacOS)
-```
-# 启动 PostgreSQL
-pg_ctl -D /usr/local/var/postgres start 
-
-# Redis
-redis-server &
-
-# Rails
-rails s
-```
 
 ### 6. Discourse 笔记
 * 自带了等级系统：trust level 0 到 4，如果不喜欢，后台可以直接禁用，无需改代码

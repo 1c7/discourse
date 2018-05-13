@@ -1,11 +1,10 @@
 {{!-- 首页中部 --}}
 
-{{!-- <h1>aad</h1> --}}
-
 <div class="container">
   {{discourse-banner user=currentUser banner=site.banner}}
 </div>
 
+{{!-- 帖子顶部的按钮：所有分类，最新，热门，分类，右侧有"发新主题" --}}
 <div class="list-controls">
   <div class="container">
     {{outlet "navigation-bar"}}

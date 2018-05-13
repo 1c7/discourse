@@ -1,5 +1,7 @@
 {{!-- 最核心的模板 --}}
 {{plugin-outlet name="above-site-header"}}
+
+{{!-- 顶部的导航条 --}}
 {{site-header canSignUp=canSignUp
               showCreateAccount=(route-action "showCreateAccount")
               showLogin=(route-action "showLogin")
@@ -12,12 +14,13 @@
 
 <div id="main-outlet" class="wrap">
   <div class="container">
-    {{#if showTop}}
+    {{!-- {{#if showTop}}
       {{custom-html name="top"}}
-    {{/if}}
-    {{notification-consent-banner}}
-    {{global-notice}}
-    {{create-topics-notice}}
+    {{/if}} --}}
+    {{!-- 去掉顶部通知 --}}
+    {{!-- {{notification-consent-banner}} --}}
+    {{!-- {{global-notice}} --}}
+    {{!-- {{create-topics-notice}} --}}
   </div>
   {{outlet}}
   {{outlet "user-card"}}

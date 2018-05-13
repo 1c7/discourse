@@ -50,12 +50,17 @@ class Toolbar {
     const { site, siteSettings } = opts;
     this.shortcuts = {};
 
+    // 分成了3组
+    // fontStyle 字体样式
+    // insertions 插入（链接，引用，代码，文件）
+    // extras 列表，emoji, 齿轮图标
     this.groups = [
       {group: 'fontStyles', buttons: []},
       {group: 'insertions', buttons: []},
       {group: 'extras', buttons: []}
     ];
 
+    // 加粗
     this.addButton({
       trimLeading: true,
       id: 'bold',
@@ -66,6 +71,7 @@ class Toolbar {
       perform: e => e.applySurround('**', '**', 'bold_text')
     });
 
+    // 斜体
     this.addButton({
       trimLeading: true,
       id: 'italic',
@@ -76,6 +82,7 @@ class Toolbar {
       perform: e => e.applySurround('_', '_', 'italic_text')
     });
 
+    // 插入链接
     if (opts.showLink) {
       this.addButton({
         id: 'link',
@@ -84,7 +91,8 @@ class Toolbar {
         action: 'showLinkModal'
       });
     }
-
+    
+    // 引用
     this.addButton({
       id: 'quote',
       group: 'insertions',
@@ -96,9 +104,11 @@ class Toolbar {
         { applyEmptyLines: true, multiline: true }
       )
     });
-
+    
+    // 代码
     this.addButton({id: 'code', group: 'insertions', shortcut: 'Shift+C', action: 'formatCode'});
 
+    // 圆点列表（无序列表）
     this.addButton({
       id: 'bullet',
       group: 'extras',
@@ -108,6 +118,7 @@ class Toolbar {
       perform: e => e.applyList('* ', 'list_item')
     });
 
+    // 数字列表（有序列表）
     this.addButton({
       id: 'list',
       group: 'extras',
