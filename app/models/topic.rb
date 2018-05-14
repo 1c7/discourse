@@ -12,7 +12,9 @@ require_dependency 'list_controller'
 require_dependency 'topic_posters_summary'
 require_dependency 'topic_featured_users'
 
-# 话题？
+# Topic 就是一篇篇帖子了
+# 可以进 rails console 然后跑 Topic.last 看到最新一篇
+# 这里面太多东西了，总共 1300 行，有点夸张
 class Topic < ActiveRecord::Base
   class UserExists < StandardError; end
   include ActionView::Helpers::SanitizeHelper

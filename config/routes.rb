@@ -592,7 +592,9 @@ Discourse::Application.routes.draw do
   Discourse.anonymous_filters.each do |filter|
     get "#{filter}.rss" => "list##{filter}_feed", format: :rss
   end
-
+  
+  # 这里 filter 是个关键，是动态创建路由
+  # filters 的定义在 /lib/discourse.rb，有 [:latest, :unread, :new, :read, :posted, :bookmarks] 
   Discourse.filters.each do |filter|
     get "#{filter}" => "list##{filter}", constraints: { format: /(json|html)/ }
     get "c/:category/l/#{filter}" => "list#category_#{filter}", as: "category_#{filter}"

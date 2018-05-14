@@ -1,10 +1,17 @@
 # Discourse 定制
 这里的代码是基于 Discourse 做定制，    
-因为 Theme 和 Plugin 对于我们要做的定制不够方便。    
+因为 Theme 和 Plugin 对于要做的定制不够方便。    
 所以直接改代码自己部署      
+(Theme 和 Plugin 我做过调查了，在 https://meta.discourse.org/ 里的 theme 和 plugin 分类下试了很多，
+也看了一些代码，所以得出结论，Theme 和 Plugin 不够方便)
 
 
-### 5. Run on local (MacOS)
+### 指南：Discourse 的 Ember 和 Rails 是怎么结合的
+
+### 指南：如何新建一个页面
+
+
+### Run on local (macOS)
 ```
 # 启动 PostgreSQL
 pg_ctl -D /usr/local/var/postgres start 
@@ -134,4 +141,7 @@ category_
 
 ### 其他
 * `lib/` 里好多代码
+
+### 关于
+这里的代码里有很多中文注释，都是我打的，Discourse 本身的英文注释非常非常少   
 

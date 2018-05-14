@@ -42,14 +42,34 @@
 
   .topic-list {
     @extend .topic-list-icons;
+    
+    // 这里改成 GRID
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 20px;
     
     .topic-list-item{
       background-color: #f96;
-      // width: 245px;
       height: 280px;
+      
+      // 帖子标题图
+      .item-thumbnail{
+        height: 185px; 
+        background-color: #e3e3e3; 
+        overflow: hidden;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // displa: ;
+        img{
+          // width: 100%;
+          height: 100%;
+          object-fit: cover;
+          // max-height: 100%;
+          width: 100%;
+          // object-fit: cover;
+        }  
+      }
     }
 
     margin: 0 0 10px;

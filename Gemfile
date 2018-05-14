@@ -8,6 +8,7 @@ def rails_master?
   ENV["RAILS_MASTER"] == '1'
 end
 
+# 如果某个环境变量 == 1 就用最新版的 Rails, 否则就用 5.1 版
 if rails_master?
   gem 'arel', git: 'https://github.com/rails/arel.git'
   gem 'rails', git: 'https://github.com/rails/rails.git'
@@ -32,30 +33,38 @@ gem 'hiredis' # https://github.com/redis/hiredis-rb # Ruby wrapper for hiredis
 gem 'redis', require:  ["redis", "redis/connection/hiredis"]
 gem 'redis-namespace'
 
-gem 'active_model_serializers', '~> 0.8.3'
+gem 'active_model_serializers', '~> 0.8.3' # https://github.com/rails-api/active_model_serializers/blob/0-10-stable/docs/general/getting_started.md
 
 gem 'onebox', '1.8.47' # https://github.com/discourse/onebox # A gem for turning URLs into website previews
 
-gem 'http_accept_language', '~>2.0.5', require: false
+gem 'http_accept_language', '~>2.0.5', require: false 
+# https://github.com/iain/http_accept_language
+# helps you detect the users preferred language
 
 gem 'ember-rails', '0.18.5'
 gem 'ember-source', '2.13.3'
 gem 'ember-handlebars-template', '0.7.5'
-gem 'barber'
+gem 'barber' # https://github.com/tchak/barber #  Handlebars precompilation
 
-gem 'message_bus'
+gem 'message_bus' # https://github.com/SamSaffron/message_bus
+# A reliable, robust messaging bus for Ruby processes and web clients.
 
-gem 'rails_multisite'
+gem 'rails_multisite' # https://github.com/discourse/rails_multisite
+# This gem provides multi-db support for Rails applications.
 
 gem 'fast_xs', platform: :mri
+# https://rubygems.org/gems/fast_xs/versions/0.8.0
+# escaping text
 
 # may move to xorcist post: https://github.com/fny/xorcist/issues/4
 gem 'fast_xor', platform: :mri
 
 gem 'fastimage'
+# https://github.com/sdsykes/fastimage
+# FastImage finds the size or type of an image given its uri by fetching as little as needed
 
-gem 'aws-sdk-s3', require: false
-gem 'excon', require: false
+gem 'aws-sdk-s3', require: false # https://rubygems.org/gems/aws-sdk-s3/versions/1.0.0.rc2
+gem 'excon', require: false # https://github.com/excon/excon # Usable, fast, simple Ruby HTTP 1.1
 gem 'unf', require: false
 
 gem 'email_reply_trimmer', '0.1.11'

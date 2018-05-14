@@ -5,7 +5,6 @@
                  typed="typed"
                  cancelled="cancelled"
                  save="save"}}
-  {{!-- <h2>这个是编辑器</h2> --}}
   {{#if visible}}
       {{composer-messages composer=model
                           messageCount=messageCount
@@ -76,7 +75,7 @@
             {{plugin-outlet name="composer-fields" args=(hash model=model)}}
 
           </div>
-
+          {{!-- 编辑器 --}}
           {{composer-editor topic=topic
                             composer=model
                             lastValidatedAt=lastValidatedAt
@@ -140,7 +139,9 @@
               </div>
             </div>
 
+            {{!-- 右下角 --}}
             <div class="composer-bottom-right">
+              {{!-- 手机端才显示 --}}
               {{#if site.mobileView}}
                 {{#if allowUpload}}
                   <a class="btn btn-default no-text mobile-file-upload {{if isUploading 'hidden'}}">{{d-icon "upload"}}</a>
@@ -150,6 +151,7 @@
                   {{d-button action='togglePreview' class='hide-preview' label='composer.hide_preview'}}
                 {{/if}}
               {{else}}
+                {{!-- 右下角 "隐藏预览"按钮 --}}
                 <a href {{action "togglePreview"}} class='toggle-preview'>{{{toggleText}}}</a>
               {{/if}}
 

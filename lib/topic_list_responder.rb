@@ -1,4 +1,5 @@
 # Helps us respond with a topic list from a controller
+# 首页的 http://localhost:3000/latest.json?_=1526296295075 就经过了这里
 module TopicListResponder
 
   def respond_with_list(list)
@@ -16,6 +17,8 @@ module TopicListResponder
       end
       format.json do
         render_serialized(list, TopicListSerializer)
+        # render_serialized 是 discourse 自己的方法，
+        # 在 app/controllers/application_controller.rb 第 367 行
       end
     end
   end

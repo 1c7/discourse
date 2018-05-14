@@ -91,10 +91,12 @@ module Discourse
 
   class Deprecation < StandardError; end
 
+  # routes.rb 里用到了这个
   def self.filters
     @filters ||= [:latest, :unread, :new, :read, :posted, :bookmarks]
   end
-
+  
+  # 意思就是不用登录的 filter
   def self.anonymous_filters
     @anonymous_filters ||= [:latest, :top, :categories]
   end

@@ -53,6 +53,9 @@ class ListController < ApplicationController
     :group_topics
   ].flatten
 
+  # 动态创建方法，比如首页会给 http://localhost:3000/latest.json?_=1526296295075 发请求
+  # 这个方法会来到 ListController#latest
+  # 而这个方法在这里，这里的代码真是复杂啊
   # Create our filters
   Discourse.filters.each do |filter|
     define_method(filter) do |options = nil|
@@ -94,7 +97,7 @@ class ListController < ApplicationController
 
       list.more_topics_url = construct_url_with(:next, list_opts)
       list.prev_topics_url = construct_url_with(:prev, list_opts)
-      if Discourse.anonymous_filters.include?(filter)
+      if Discourse.anonymous_filters.include?(filter)  # latest 会进入到这里
         @description = SiteSetting.site_description
         @rss = filter
 
