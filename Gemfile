@@ -64,19 +64,21 @@ gem 'fastimage'
 # FastImage finds the size or type of an image given its uri by fetching as little as needed
 
 gem 'aws-sdk-s3', require: false # https://rubygems.org/gems/aws-sdk-s3/versions/1.0.0.rc2
-gem 'excon', require: false # https://github.com/excon/excon # Usable, fast, simple Ruby HTTP 1.1
-gem 'unf', require: false
+gem 'excon', require: false # https://github.com/excon/excon  # Usable, fast, simple Ruby HTTP 1.1
+gem 'unf', require: false  # https://rubygems.org/gems/unf    # bring Unicode Normalization Form support to Ruby/JRuby.
 
 gem 'email_reply_trimmer', '0.1.11'
+# https://rubygems.org/gems/email_reply_trimmer/versions/0.1.8
+# EmailReplyTrimmer is a small library to trim replies from plain text email.
 
 # Forked until https://github.com/toy/image_optim/pull/149 is merged
 gem 'discourse_image_optim', require: 'image_optim'
-gem 'multi_json'
-gem 'mustache'
-gem 'nokogiri'
+gem 'multi_json' # https://github.com/intridea/multi_json  # simply choose the fastest available JSON coder
+gem 'mustache'  # https://github.com/mustache/mustache   # Logic-less Ruby templates 
+gem 'nokogiri'  # https://github.com/sparklemotion/nokogiri  # HTML, XML, SAX, and Reader parser.
 
-gem 'omniauth'
-gem 'omniauth-openid'
+gem 'omniauth'  # https://github.com/omniauth/omniauth
+gem 'omniauth-openid'  # https://github.com/omniauth/omniauth-openid
 gem 'openid-redis-store'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -86,13 +88,20 @@ gem 'omniauth-github'
 gem 'omniauth-oauth2', require: false
 
 gem 'omniauth-google-oauth2'
-gem 'oj'
-gem 'pg', '~> 0.21.0'
-gem 'pry-rails', require: false
-gem 'r2', '~> 0.2.5', require: false
-gem 'rake'
+gem 'oj'  # https://github.com/ohler55/oj  # A fast JSON parser and Object marshaller as a Ruby gem.  # 又是弄 JSON 的
+gem 'pg', '~> 0.21.0'  # PostgreSQL
+gem 'pry-rails', require: false  # https://github.com/rweng/pry-rails  
+# http://pryrepl.org/
+# Pry is a powerful alternative to the standard IRB shell for Ruby.
 
-gem 'thor', require: false
+gem 'r2', '~> 0.2.5', require: false  #  https://rubygems.org/gems/r2/versions/0.2.5
+# https://github.com/mzsanford/R2rb/
+# Library for swapping CSS values for right-to-left display
+# 处理 CSS 的，方便左右布局切换，从左到右，从右到左的语言，方便切换
+
+gem 'rake' # https://github.com/ruby/rake
+
+gem 'thor', require: false  # https://github.com/erikhuda/thor
 gem 'rinku'
 gem 'sanitize'
 gem 'sidekiq'
