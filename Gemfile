@@ -44,8 +44,20 @@ gem 'http_accept_language', '~>2.0.5', require: false
 # helps you detect the users preferred language
 
 gem 'ember-rails', '0.18.5'
+# https://rubygems.org/gems/ember-rails/versions/0.18.5
+# 0.18.5 is 2015
+
 gem 'ember-source', '2.13.3'
+# https://rubygems.org/gems/ember-source/versions/2.13.3
+# 2.13.3 is 2017
+# Ember.js source code wrapper for use with Ruby libs.
+
 gem 'ember-handlebars-template', '0.7.5'
+# https://rubygems.org/gems/ember-handlebars-template/versions/0.7.5
+# 0.75 is 2016
+# The sprockets template for Ember Handlebars.
+# https://github.com/tricknotes/ember-handlebars-template
+
 gem 'barber' # https://github.com/tchak/barber #  Handlebars precompilation
 
 gem 'message_bus' # https://github.com/SamSaffron/message_bus

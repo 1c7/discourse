@@ -6,6 +6,13 @@
 也看了一些代码，所以得出结论，Theme 和 Plugin 不够方便)
 
 
+### 时间点
+目前状态：定制中     
+
+其他时间点     
+* 2018-4月底，项目正式开始
+* 
+
 ### 指南：Discourse 的 Ember 和 Rails 是怎么结合的
 
 ### 指南：如何新建一个页面
@@ -27,7 +34,16 @@ rails s
 是 discourse-master，不是 master
 
 ### Discourse 技术栈
-Ruby on Rails + Ember.js + PostgreSQL 
+* Ruby on Rails + Ember.js + PostgreSQL 
+* Ember 和 Rails 的代码都放在一起了
+* Ember 这边是用了   
+
+`Gemfile`
+```
+gem 'ember-rails', '0.18.5'
+gem 'ember-source', '2.13.3'
+```
+一个 ember-rails 库，一个 ember-source 是把 Ember.js 包一下
 
 ### Demo
 暂无，开发中
