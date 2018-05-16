@@ -25,9 +25,11 @@ else
   gem 'seed-fu' # https://github.com/mbleigh/seed-fu
 end
 
-gem 'mail', '2.7.1.rc1', require: false
-gem 'mini_mime'
-gem 'mini_suffix'
+gem 'mail', '2.7.1.rc1', require: false # https://github.com/mikel/mail
+# handle emails generation, parsing and sending in a simple, rubyesque manner
+
+gem 'mini_mime'    # https://github.com/discourse/mini_mime # mime type library
+gem 'mini_suffix'  # https://github.com/discourse/mini_suffix
 
 gem 'hiredis' # https://github.com/redis/hiredis-rb # Ruby wrapper for hiredis
 gem 'redis', require:  ["redis", "redis/connection/hiredis"]
@@ -102,17 +104,33 @@ gem 'r2', '~> 0.2.5', require: false  #  https://rubygems.org/gems/r2/versions/0
 gem 'rake' # https://github.com/ruby/rake
 
 gem 'thor', require: false  # https://github.com/erikhuda/thor
-gem 'rinku'
-gem 'sanitize'
+# Thor is a simple and efficient tool for building self-documenting command line utilities.
+
+gem 'rinku' # https://github.com/vmg/rinku
+# 转换链接文字变成 HTML 链接
+gem 'sanitize'  # https://github.com/rgrove/sanitize
+# 清理用的 # Sanitize is a whitelist-based HTML and CSS sanitizer.
+
 gem 'sidekiq'
 
 # for sidekiq web
-gem 'tilt', require: false
+gem 'tilt', require: false   # https://github.com/rtomayko/tilt
+# Tilt is a thin interface over a bunch of different Ruby template engines in an attempt to make their usage as generic as possible.
 
-gem 'execjs', require: false
+gem 'execjs', require: false # https://github.com/rails/execjs
+#  run JavaScript code from Ruby
+# https://rubygems.org/gems/execjs
+
 gem 'mini_racer'
-gem 'highline', require: false
+# https://rubygems.org/gems/mini_racer/versions/0.1.15
+# Minimal embedded v8 engine for Ruby
+
+gem 'highline', require: false 
+# https://github.com/JEG2/highline
+# for command line
+
 gem 'rack-protection' # security
+# https://rubygems.org/gems/rack-protection
 
 # Gems used only for assets and not required in production environments by default.
 # Allow everywhere for now cause we are allowing asset debugging in production
@@ -134,7 +152,7 @@ group :test, :development do
   gem 'certified', require: false
   # later appears to break Fabricate(:topic, category: category)
   gem 'fabrication', '2.9.8', require: false
-  gem 'mocha', require: false
+  gem 'mocha', require: false # https://github.com/freerange/mocha
   gem 'rb-fsevent', require: RUBY_PLATFORM =~ /darwin/i ? 'rb-fsevent' : false
   gem 'rb-inotify', '~> 0.9', require: RUBY_PLATFORM =~ /linux/i ? 'rb-inotify' : false
   gem 'rspec-rails', require: false
@@ -168,7 +186,7 @@ gem 'htmlentities', require: false
 #  If you want to amend mini profiler to do the monkey patches in the railties
 #  we are open to it. by deferring require to the initializer we can configure discourse installs without it
 
-gem 'flamegraph', require: false
+gem 'flamegraph', require: false  #  https://github.com/SamSaffron/flamegraph
 gem 'rack-mini-profiler', require: false
 
 gem 'unicorn', require: false, platform: :mri
@@ -187,14 +205,26 @@ gem 'cppjieba_rb', require: false
 gem 'lograge', require: false
 gem 'logstash-event', require: false
 gem 'logstash-logger', require: false
-gem 'logster'
+
+gem 'logster' # https://github.com/discourse/logster
+# Logster is an embedded Ruby "exception reporting service" admins can view on live websites, at http://example.com/logs
 
 gem 'sassc', require: false
+# https://github.com/sass/sassc-ruby
+# Use libsass with Ruby! 
+
 
 gem 'rotp'
+# https://github.com/mdp/rotp
+# Ruby One Time Password library
+
 gem 'rqrcode'
+# https://github.com/whomwah/rqrcode
+# 编码成二维码的 gem
 
 gem 'sshkey', require: false
+# https://github.com/bensie/sshkey
+# SSH private and public key generator in pure Ruby (RSA & DSA)
 
 if ENV["IMPORT"] == "1"
   gem 'mysql2'
@@ -205,3 +235,5 @@ if ENV["IMPORT"] == "1"
 end
 
 gem 'webpush', require: false
+# https://github.com/zaru/webpush
+# send push messages to web browsers from Ruby backends using the Web Push Protocol.
